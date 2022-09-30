@@ -1,5 +1,4 @@
-
-
+# Python OOP
 class Employee:
 
     num_of_employees = 0
@@ -18,6 +17,10 @@ class Employee:
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amount)
+
+    @classmethod
+    def set_raise_amount(cls, amount):
+        cls.raise_amount = amount
 
 
 print(Employee.num_of_employees)
