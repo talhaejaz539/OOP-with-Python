@@ -1,5 +1,9 @@
 # Python OOP
 
+import datetime
+from calendar import weekday
+
+
 class Employee:
 
     num_of_employees = 0
@@ -28,6 +32,12 @@ class Employee:
         first, last, pay = emp_str.split('-')
         return cls(first, last, pay)
 
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday() == 6:
+            return False
+        return True
+
 
 emp_1 = Employee('Talha', 'Ejaz', 50000)
 emp_2 = Employee('Test', 'User', 60000)
@@ -40,3 +50,7 @@ new_emp_1 = Employee.from_string(emp_str_1)
 
 print(new_emp_1.email)
 print(new_emp_1.pay)
+
+my_date = datetime.date(2022, 10, 1)
+
+print(Employee.is_workday(my_date))
