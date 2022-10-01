@@ -1,8 +1,5 @@
 # Python OOP
 
-from distutils.debug import DEBUG
-
-
 class Employee:
 
     num_of_employees = 0
@@ -24,13 +21,15 @@ class Employee:
 
 
 class Developer(Employee):
-    pass
+    raise_amount = 1.10
 
 
-dev_1 = Developer('Talha', 'Ejaz', 50000)
+dev_1 = Employee('Talha', 'Ejaz', 50000)
 dev_2 = Developer('Test', 'User', 60000)
-
-print(help(Developer))
 
 # print(dev_1.email)
 # print(dev_2.email)
+
+print(dev_1.pay)
+dev_1.apply_raise()
+print(dev_1.pay)
