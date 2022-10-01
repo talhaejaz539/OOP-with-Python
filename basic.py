@@ -51,6 +51,6 @@ new_emp_1 = Employee.from_string(emp_str_1)
 print(new_emp_1.email)
 print(new_emp_1.pay)
 
-my_date = datetime.date(2022, 10, 1)
+my_date = datetime.date(2022, 10, 1)        # Saturday
 
 print(Employee.is_workday(my_date))
