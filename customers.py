@@ -1,58 +1,49 @@
 
 
-from imaplib import Int2AP
-
-
-def newIndex(start, value, list=[]):
-    for i in range(start + 1, len(list)):
-        if list[i] == value:
-            return i
-
-
 list = []
-listA = []
-listB = []
 maxSum = []
-indexlist = []
 
-firstline = input()
-secondline = input()
-
-list = firstline.split(' ')
+inputLine = input()
+list = inputLine.split(' ')
 customers = int(list[0])
 availableStock = int(list[1])
 
-list = secondline.split(' ')
+inputLine = input()
+list = inputLine.split(' ')
 stockA = int(list[0])
 stockB = int(list[1])
 totalStock = stockA * stockB
 
 for i in range(0, customers):
-    customerline = input()
-    list = customerline.split(' ')
-    listA.append(int(list[0]))
-    listB.append(int(list[1]))
-    maxSum.append((listA[i] * stockA) + (listB[i] * stockB))
+    inputLine = input()
+    list = inputLine.split(' ')
+    maxSum.append((int(list[0]) * stockA) + (int(list[1]) * stockB))
 
-print(maxSum)
+maxSum2 = maxSum.copy()
+maxSum.sort()
 
-maxSum2 = []
-maxSum2 = maxSum
+# Sorting Positions
+s = maxSum2
+li = []
 
+for i in range(len(s)):
+    li.append([s[i], i])
+li.sort()
+sort_index = []
+
+for x in li:
+    sort_index.append(x[1] + 1)
+
+
+# Final
+indexlist = []
+i = 0
 while(True):
-    demand = min(maxSum)
+    demand = maxSum[i]
     if demand <= availableStock:
-        a = maxSum2.index(demand) + 1
-        if a in indexlist:
-            print("a", a)
-            indexlist.append(a)
-        elif a not in indexlist:
-            b = newIndex(a, demand, maxSum2)
-            print("b", b)
-            indexlist.append(b)
         availableStock = availableStock - demand
-        maxSum.remove(demand)
-        print(maxSum)
+        indexlist.append(sort_index[i])
+        i = i + 1
     else:
         break
 
