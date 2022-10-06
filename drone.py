@@ -1,31 +1,24 @@
 
 
 def find(people):
-    list = []
-    newList = []
 
-    for i in range(1, people + 1):
-        list.append(i)
+    i = 0   # Plate to be picked
+    j = 1   # Skip Size
 
-    # Programming Logic
+    arr: list = [i + 1 for i in range(people)]
 
-    for i in range(1, people + 1):
-        # if i == 1:
-        newList.append(i)
-        newList.append(i+2)
-        # list.remove(i)
-        # list.remove(i+2)
-        # # elif i == 2:
-        # newList.append(i)
-        # newList.append(i+2)
-        # list.remove(i)
-        # list.remove(i+2)
+    while len(arr) > 1:  # loop run untill we have only one plate i.e. last plate
+        arr.pop(i)
+        i = (i + j) % len(arr)
+        j += 1
 
-    print(newList)
+    return arr[0]
 
 
 testcase = int(input())
 
 for i in range(0, testcase):
     people = int(input())
-    find(people)
+    print(find(people))
+
+print(3 % 3)
