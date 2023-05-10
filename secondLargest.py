@@ -15,7 +15,7 @@ def find(list=[]):
         second = list[1]
 
     i = 2
-    while i < 5:
+    while i < len(list):
         if list[i] > largest:
             second = largest
             largest = list[i]
